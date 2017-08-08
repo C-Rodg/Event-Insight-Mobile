@@ -118,4 +118,149 @@ body {
 	flex-direction: column;
 	overflow-y: auto;
 	padding: 10px;
+	text-align: center;
+
+	.search-title {
+		margin-bottom: 10px;
+		color: $off-black;
+		font-size: 1.1rem;
+		line-height: 150%;
+	}
+
+	.search-error {
+		margin-bottom: 10px;
+		color: $error;
+	}
+}
+
+.search-form {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 0 auto 10px auto;
+	max-width: 400px;
+
+	.search-icon {
+		color: #111;
+		font-size: 28px;
+		top: 16px;
+		left: 13px;
+		position: absolute;
+		user-select: none;
+	}
+
+	.search-icon-btn {
+		cursor: poitner;
+		position: absolute;
+		margin: 0;
+		height: 100%;
+		width: 32px;
+		z-index: 3;
+		border: 0;
+		background-color: transparent;
+
+		&:hover,
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.search-input {
+		padding: 6px 55px;
+		border-radius: 2px;
+		font-size: 1.6rem;
+		line-height: 3rem;
+		color: #141414;
+		background-color: #fff;
+		border: 0;
+		font-family: inherit;
+		width: 100%;
+		appearance: none;
+		touch-action: manipulation;
+		margin: 0;
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2),
+			0 1px 5px 0 rgba(0, 0, 0, .12);
+
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
+}
+
+.registrant-tile {
+	cursor: pointer;
+	position: relative;
+	max-width: 400px;
+	width: 100%;
+	margin: 0 auto 10px auto;
+	background-color: $text-white;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2),
+		0 1px 5px 0 rgba(0, 0, 0, .12);
+	display: flex;
+
+	.registrant-info {
+		text-align: left;
+		width: 80%;
+		border-right: 1px solid #e4e4e4;
+		padding: 8px 10px;
+
+		.name {
+			font-family: $heavy-font;
+			color: $off-black;
+			font-size: 1.1rem;
+		}
+
+		.company {
+			color: $text-card-gray;
+			font-size: 0.9rem;
+		}
+
+		.company,
+		.name {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+	}
+
+	.registrant-action {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		i {
+			font-size: 42px;
+		}
+
+		&.watchlist-add {
+			color: $primary-dark;
+		}
+
+		&.watchlist-remove {
+			color: $error;
+		}
+	}
+
+	&.attended {
+		background-color: $primary-mid-2;
+
+		.name {
+			color: $text-white;
+		}
+
+		.company {
+			color: #e5e5e5;
+		}
+
+		.registrant-action.watchlist-add {
+			color: $text-white;
+		}
+
+		.registrant-action.watchlist-remove {
+			color: #ffcd72;
+		}
+	}
 }
