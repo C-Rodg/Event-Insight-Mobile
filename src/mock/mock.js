@@ -13,7 +13,7 @@ const registrants = [
 		LastName: "Salmanders",
 		Company: "Google, Inc.",
 		Attended: true,
-		FirstCheckInDateTime: "2017-08-02T08:30:22",
+		FirstCheckInDateTime: "AUG 02, 8:30 AM",
 		WatchList: false,
 		AttendeeId: 1001
 	},
@@ -22,7 +22,7 @@ const registrants = [
 		LastName: "Klein",
 		Company: "Alphabet Corp",
 		Attended: false,
-		FirstCheckInDateTime: "2017-08-02T08:30:22",
+		FirstCheckInDateTime: "AUG 02, 8:38 AM",
 		WatchList: false,
 		AttendeeId: 1002
 	},
@@ -31,7 +31,7 @@ const registrants = [
 		LastName: "Stalbrook",
 		Company: "Apple",
 		Attended: false,
-		FirstCheckInDateTime: "2017-08-02T08:30:22",
+		FirstCheckInDateTime: "AUG 02, 7:33 AM",
 		WatchList: false,
 		AttendeeId: 1003
 	},
@@ -40,7 +40,7 @@ const registrants = [
 		LastName: "Johnson",
 		Company: "ESPN Networks",
 		Attended: true,
-		FirstCheckInDateTime: "2017-08-02T11:36:22",
+		FirstCheckInDateTime: "AUG 02, 11:55 AM",
 		WatchList: false,
 		AttendeeId: 1004
 	},
@@ -49,7 +49,7 @@ const registrants = [
 		LastName: "Sampson",
 		Company: "Comcast Sucks",
 		Attended: true,
-		FirstCheckInDateTime: "2017-08-02T12:17:22",
+		FirstCheckInDateTime: "AUG 23, 12:45 PM",
 		WatchList: false,
 		AttendeeId: 1005
 	},
@@ -58,7 +58,7 @@ const registrants = [
 		LastName: "Braves",
 		Company: "Real Networks",
 		Attended: false,
-		FirstCheckInDateTime: "2017-08-02T08:30:22",
+		FirstCheckInDateTime: "AUG 13, 10:01 PM",
 		WatchList: true,
 		AttendeeId: 1006
 	},
@@ -67,7 +67,7 @@ const registrants = [
 		LastName: "Mackeloor",
 		Company: "Convoy Solutions",
 		Attended: false,
-		FirstCheckInDateTime: "2017-08-02T08:30:22",
+		FirstCheckInDateTime: "AUG 02, 11:22 AM",
 		WatchList: false,
 		AttendeeId: 1007
 	},
@@ -76,7 +76,7 @@ const registrants = [
 		LastName: "Minkelly",
 		Company: "Treehouse Networks",
 		Attended: false,
-		FirstCheckInDateTime: "2017-08-02T08:30:22",
+		FirstCheckInDateTime: "AUG 02, 11:39 AM",
 		WatchList: false,
 		AttendeeId: 1008
 	},
@@ -85,25 +85,25 @@ const registrants = [
 		LastName: "Mason",
 		Company: "Adobe",
 		Attended: true,
-		FirstCheckInDateTime: "2017-08-03T07:56:22",
+		FirstCheckInDateTime: "AUG 13, 6:13 AM",
 		WatchList: false,
 		AttendeeId: 1009
 	},
 	{
 		FirstName: "Ashley",
-		LastName: "Waters",
+		LastName: "Wilson-Watkins",
 		Company: "Facebook",
 		Attended: true,
-		FirstCheckInDateTime: "2017-08-02T17:56:22",
+		FirstCheckInDateTime: "AUG 03, 12:11 PM",
 		WatchList: true,
 		AttendeeId: 1010
 	},
 	{
 		FirstName: "Thomas",
-		LastName: "Wilson-Watkins",
+		LastName: "Moore-Stevens",
 		Company: "Microsoft",
 		Attended: false,
-		FirstCheckInDateTime: "2017-08-02T08:30:22",
+		FirstCheckInDateTime: "AUG 02, 8:37 AM",
 		WatchList: false,
 		AttendeeId: 1011
 	},
@@ -112,7 +112,7 @@ const registrants = [
 		LastName: "Talmadge",
 		Company: "Nordstrom",
 		Attended: false,
-		FirstCheckInDateTime: "2017-08-02T08:30:22",
+		FirstCheckInDateTime: "AUG 02, 9:59 AM",
 		WatchList: true,
 		AttendeeId: 1012
 	},
@@ -121,7 +121,7 @@ const registrants = [
 		LastName: "Williams",
 		Company: "National Basketball Association",
 		Attended: true,
-		FirstCheckInDateTime: "2017-08-03T10:59:22",
+		FirstCheckInDateTime: "AUG 09, 12:58 PM",
 		WatchList: false,
 		AttendeeId: 1013
 	}

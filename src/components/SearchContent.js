@@ -12,7 +12,8 @@ class SearchContent extends Component {
 		this.state = {
 			searchTerm: "",
 			registrants: [],
-			error: false
+			error: false,
+			hasSearched: false
 		};
 	}
 
@@ -35,17 +36,43 @@ class SearchContent extends Component {
 				reg.Company.toUpperCase().indexOf(searchTerm) > -1
 			);
 		});
-		this.setState({ registrants: regs });
+		this.setState({ registrants: regs, hasSearched: true });
 	}
 
 	// Generate list of registrants
 	generateRegistrantList() {
-		if (this.state.registrants.length === 0 && this.state.searchTerm) {
+		if (this.state.registrants.length === 0 && this.state.hasSearched) {
 			return <div className="no-registrants">No registrants found...</div>;
 		}
 		return this.state.registrants.map(registrant => {
-			return <RegistrantTile {...registrant} key={registrant.AttendeeId} />;
+			return (
+				<RegistrantTile
+					registrant={registrant}
+					loadRegistrant={this.handleLoadRegistrant}
+					key={registrant.AttendeeId}
+					addToWatch={this.handleAddToWatchList}
+					removeFromWatch={this.handleRemoveFromWatchList}
+				/>
+			);
 		});
+	}
+
+	// Remove registrant from watchlist
+	handleRemoveFromWatchList(registrant) {
+		console.log("Removing from watchlist");
+		console.log(registrant);
+	}
+
+	// Add registrant to watchlist
+	handleAddToWatchList(registrant) {
+		console.log("Adding to watchlist");
+		console.log(registrant);
+	}
+
+	// Load registrant
+	handleLoadRegistrant(registrant) {
+		console.log("Loading registrant...");
+		console.log(registrant);
 	}
 
 	render() {
