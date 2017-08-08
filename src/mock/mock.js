@@ -127,14 +127,6 @@ const registrants = [
 	}
 ];
 
-export const getAllRegistrants = () => {
-	return registrants;
-};
-
-export const loadRegistrant = () => {
-	return registrants[Math.floor(Math.random() * registrants.length)];
-};
-
 export const searchRegistrants = searchTerm => {
 	const term = searchTerm.toUpperCase();
 	return registrants.filter(reg => {
@@ -144,4 +136,8 @@ export const searchRegistrants = searchTerm => {
 			reg.Company.toUpperCase().indexOf(term) > -1
 		);
 	});
+};
+
+export const getWatchlistRegistrants = () => {
+	return registrants.filter(reg => reg.WatchList);
 };

@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 import RegistrantTile from "./RegistrantTile";
 
 // TESTING
-import { searchRegistrants, loadRegistrant } from "../mock/mock";
+import { searchRegistrants } from "../mock/mock";
 
 class SearchContent extends Component {
 	constructor() {
@@ -13,10 +13,12 @@ class SearchContent extends Component {
 			searchTerm: "",
 			registrants: [],
 			error: false,
-			hasSearched: false
+			hasSearched: false,
+			currentRegistrant: null
 		};
 
 		this.toggleWatchList = this.toggleWatchList.bind(this);
+		this.handleLoadRegistrant = this.handleLoadRegistrant.bind(this);
 	}
 
 	// Update Search Term
@@ -30,7 +32,11 @@ class SearchContent extends Component {
 		const { searchTerm } = this.state;
 		console.log("Now searching for..." + searchTerm);
 		const regs = searchRegistrants(searchTerm);
-		this.setState({ registrants: regs, hasSearched: true });
+		this.setState({
+			registrants: regs,
+			hasSearched: true,
+			currentRegistrant: null
+		});
 	}
 
 	// Generate list of registrants
@@ -52,7 +58,7 @@ class SearchContent extends Component {
 
 	// Remove registrant from watchlist
 	toggleWatchList(registrant, watch) {
-		console.log("Removing from watchlist");
+		console.log("Toggling from watchlist");
 		console.log(registrant);
 		const newRegs = [...this.state.registrants];
 		const objIdx = newRegs.findIndex(
@@ -66,6 +72,11 @@ class SearchContent extends Component {
 	handleLoadRegistrant(registrant) {
 		console.log("Loading registrant...");
 		console.log(registrant);
+		this.setState({
+			currentRegistrant: registrant,
+			searchTerm: "",
+			hasSearched: false
+		});
 	}
 
 	render() {
@@ -87,8 +98,11 @@ class SearchContent extends Component {
 					handleSearchSubmit={this.handleSearchSubmit.bind(this)}
 				/>
 				<div className="search-results">
-					{this.generateRegistrantList()}
+					{!this.state.currentRegistrant && this.generateRegistrantList()}
 				</div>
+				{this.state.currentRegistrant
+					? <div className="current-registrant">CURRENT REGISTRANT</div>
+					: ""}
 			</div>
 		);
 	}
