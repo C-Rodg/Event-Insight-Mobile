@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import SearchForm from "./SearchForm";
+import RegistrantTile from "./RegistrantTile";
 
 // TESTING
 import { getRegistrants, loadRegistrant } from "../mock/mock";
@@ -37,6 +38,16 @@ class SearchContent extends Component {
 		this.setState({ registrants: regs });
 	}
 
+	// Generate list of registrants
+	generateRegistrantList() {
+		if (this.state.registrants.length === 0 && this.state.searchTerm) {
+			return <div className="no-registrants">No registrants found...</div>;
+		}
+		return this.state.registrants.map(registrant => {
+			return <RegistrantTile {...registrant} key={registrant.AttendeeId} />;
+		});
+	}
+
 	render() {
 		return (
 			<div className="search-content">
@@ -56,44 +67,7 @@ class SearchContent extends Component {
 					handleSearchSubmit={this.handleSearchSubmit.bind(this)}
 				/>
 				<div className="search-results">
-					<div className="registrant-tile">
-						<div className="registrant-info">
-							<div className="name">James Wilson-Walker</div>
-							<div className="company">
-								Disney, World Wide Corporation of the world
-							</div>
-						</div>
-						<div className="registrant-action watchlist-add">
-							<i className="material-icons">add_circle_outline</i>
-						</div>
-					</div>
-					<div className="registrant-tile">
-						<div className="registrant-info">
-							<div className="name">Janae Thompson</div>
-							<div className="company">CP Technologies</div>
-						</div>
-						<div className="registrant-action watchlist-add">
-							<i className="material-icons">add_circle_outline</i>
-						</div>
-					</div>
-					<div className="registrant-tile attended">
-						<div className="registrant-info">
-							<div className="name">Michael Moore</div>
-							<div className="company">Wilson Basketballs</div>
-						</div>
-						<div className="registrant-action watchlist-remove">
-							<i className="material-icons">remove_circle_outline</i>
-						</div>
-					</div>
-					<div className="registrant-tile attended">
-						<div className="registrant-info">
-							<div className="name">Janae Thompson</div>
-							<div className="company">CP Technologies</div>
-						</div>
-						<div className="registrant-action watchlist-add">
-							<i className="material-icons">add_circle_outline</i>
-						</div>
-					</div>
+					{this.generateRegistrantList()}
 				</div>
 			</div>
 		);
