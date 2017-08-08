@@ -127,10 +127,21 @@ const registrants = [
 	}
 ];
 
-export const getRegistrants = () => {
+export const getAllRegistrants = () => {
 	return registrants;
 };
 
 export const loadRegistrant = () => {
 	return registrants[Math.floor(Math.random() * registrants.length)];
+};
+
+export const searchRegistrants = searchTerm => {
+	const term = searchTerm.toUpperCase();
+	return registrants.filter(reg => {
+		return (
+			reg.FirstName.toUpperCase().indexOf(term) > -1 ||
+			reg.LastName.toUpperCase().indexOf(term) > -1 ||
+			reg.Company.toUpperCase().indexOf(term) > -1
+		);
+	});
 };

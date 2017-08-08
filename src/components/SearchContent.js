@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 import RegistrantTile from "./RegistrantTile";
 
 // TESTING
-import { getRegistrants, loadRegistrant } from "../mock/mock";
+import { searchRegistrants, loadRegistrant } from "../mock/mock";
 
 class SearchContent extends Component {
 	constructor() {
@@ -15,6 +15,8 @@ class SearchContent extends Component {
 			error: false,
 			hasSearched: false
 		};
+
+		this.toggleWatchList = this.toggleWatchList.bind(this);
 	}
 
 	// Update Search Term
@@ -25,17 +27,9 @@ class SearchContent extends Component {
 	// Handle Form Submit
 	handleSearchSubmit(ev) {
 		ev.preventDefault();
-		let { searchTerm } = this.state;
+		const { searchTerm } = this.state;
 		console.log("Now searching for..." + searchTerm);
-		searchTerm = searchTerm.toUpperCase();
-
-		const regs = getRegistrants().filter(reg => {
-			return (
-				reg.FirstName.toUpperCase().indexOf(searchTerm) > -1 ||
-				reg.LastName.toUpperCase().indexOf(searchTerm) > -1 ||
-				reg.Company.toUpperCase().indexOf(searchTerm) > -1
-			);
-		});
+		const regs = searchRegistrants(searchTerm);
 		this.setState({ registrants: regs, hasSearched: true });
 	}
 
@@ -49,24 +43,23 @@ class SearchContent extends Component {
 				<RegistrantTile
 					registrant={registrant}
 					loadRegistrant={this.handleLoadRegistrant}
+					toggleWatch={this.toggleWatchList}
 					key={registrant.AttendeeId}
-					addToWatch={this.handleAddToWatchList}
-					removeFromWatch={this.handleRemoveFromWatchList}
 				/>
 			);
 		});
 	}
 
 	// Remove registrant from watchlist
-	handleRemoveFromWatchList(registrant) {
+	toggleWatchList(registrant, watch) {
 		console.log("Removing from watchlist");
 		console.log(registrant);
-	}
-
-	// Add registrant to watchlist
-	handleAddToWatchList(registrant) {
-		console.log("Adding to watchlist");
-		console.log(registrant);
+		const newRegs = [...this.state.registrants];
+		const objIdx = newRegs.findIndex(
+			obj => obj.AttendeeId === registrant.AttendeeId
+		);
+		newRegs[objIdx].WatchList = watch;
+		this.setState({ registrants: newRegs });
 	}
 
 	// Load registrant

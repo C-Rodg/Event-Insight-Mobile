@@ -1,11 +1,6 @@
 import React from "react";
 
-const RegistrantTile = ({
-	registrant,
-	loadRegistrant,
-	addToWatch,
-	removeFromWatch
-}) => {
+const RegistrantTile = ({ registrant, loadRegistrant, toggleWatch }) => {
 	const {
 		Attended,
 		FirstName,
@@ -38,7 +33,9 @@ const RegistrantTile = ({
 					(WatchList ? "watchlist-remove" : "watchlist-add")
 				}
 				onClick={() =>
-					WatchList ? removeFromWatch(registrant) : addToWatch(registrant)}
+					WatchList
+						? toggleWatch(registrant, false)
+						: toggleWatch(registrant, true)}
 			>
 				{WatchList
 					? <i className="material-icons">remove_circle_outline</i>
