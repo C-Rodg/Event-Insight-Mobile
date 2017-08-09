@@ -337,19 +337,63 @@ body {
 			right: 0;
 			padding: 5px 5px 0 0;
 
+			i {
+				border-radius: 50%;
+			}
+
 			&:focus,
 			&:active,
 			&:hover {
 				i {
 					background-color: rgba(0, 0, 0, 0.1);
-					border-radius: 50%;
 				}
 			}
 		}
 	}
 
 	.card-body {
-		padding: 0 10px 5px 10px;
+		.card-body-data {
+			border-bottom: 1px solid $text-gray;
+
+			.body-header {
+				display: flex;
+				color: $off-black;
+				justify-content: space-between;
+
+				.header-text {
+					font-family: $heavy-font;
+					padding-left: 10px;
+				}
+				.header-icon {
+					padding: 0 6px;
+					cursor: pointer;
+					i {
+						border-radius: 50%;
+					}
+
+					&:hover,
+					&:active,
+					&:focus {
+						i {
+							background-color: rgba(0, 0, 0, 0.1);
+						}
+					}
+
+					.icon-direction {
+						transform: rotate(0);
+						transition: transform 0.3s ease-in-out;
+					}
+				}
+			}
+
+			&.open {
+				.header-icon {
+					.icon-direction {
+						transform: rotate(-90deg);
+					}
+				}
+			}
+		}
 	}
 }
 
