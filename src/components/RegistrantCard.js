@@ -12,6 +12,7 @@ class RegistrantCard extends Component {
 		};
 	}
 
+	// Toggle opening of accordions
 	toggleOpen(prop) {
 		this.setState({ [prop]: !this.state[prop] });
 	}
@@ -50,18 +51,94 @@ class RegistrantCard extends Component {
 							"card-body-data reg-data " + (this.state.openReg ? "open" : "")
 						}
 					>
-						<div className="body-header">
+						<div
+							className="body-header"
+							onClick={() => this.toggleOpen("openReg")}
+						>
 							<div className="header-text">Registrant Data</div>
-							<div
-								className="header-icon"
-								onClick={() => this.toggleOpen("openReg")}
-							>
+							<div className="header-icon">
 								<i className="material-icons icon-direction">
 									keyboard_arrow_left
 								</i>
 							</div>
 						</div>
-						<div className="card-body-data-text">Reg data here...</div>
+						<div className="card-body-data-text">
+							Registrant data goes here...
+						</div>
+					</div>
+
+					<div
+						className={
+							"card-body-data reg-data " +
+							(this.state.openSessions ? "open" : "")
+						}
+					>
+						<div
+							className="body-header"
+							onClick={() => this.toggleOpen("openSessions")}
+						>
+							<div className="header-text">
+								Sessions Attended ({(registrant.Sessions &&
+									registrant.Sessions.length) ||
+									0})
+							</div>
+							<div className="header-icon">
+								<i className="material-icons icon-direction">
+									keyboard_arrow_left
+								</i>
+							</div>
+						</div>
+						<div className="card-body-data-text">Sessions.. atttended...</div>
+					</div>
+
+					<div
+						className={
+							"card-body-data reg-data " +
+							(this.state.openExhibitors ? "open" : "")
+						}
+					>
+						<div
+							className="body-header"
+							onClick={() => this.toggleOpen("openExhibitors")}
+						>
+							<div className="header-text">
+								Exhibitors Visited ({(registrant.Exhibitors &&
+									registrant.Exhibitors.length) ||
+									0})
+							</div>
+							<div className="header-icon">
+								<i className="material-icons icon-direction">
+									keyboard_arrow_left
+								</i>
+							</div>
+						</div>
+						<div className="card-body-data-text">Exhibitors visited...</div>
+					</div>
+
+					<div
+						className={
+							"card-body-data reg-data " +
+							(this.state.openFeedback ? "open" : "")
+						}
+					>
+						<div
+							className="body-header"
+							onClick={() => this.toggleOpen("openFeedback")}
+						>
+							<div className="header-text">
+								Feedback ({(registrant.Feedback &&
+									registrant.Feedback.length) ||
+									0})
+							</div>
+							<div className="header-icon">
+								<i className="material-icons icon-direction">
+									keyboard_arrow_left
+								</i>
+							</div>
+						</div>
+						<div className="card-body-data-text">
+							Feedback data goes here...
+						</div>
 					</div>
 				</div>
 			</div>
