@@ -275,3 +275,86 @@ body {
 		}
 	}
 }
+
+.registrant-card {
+	background-color: #fff;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2),
+		0 1px 5px 0 rgba(0, 0, 0, .12);
+	text-align: left;
+	max-width: 400px;
+	margin: 0 auto;
+
+	.card-header {
+		position: relative;
+
+		&.attended {
+			.header-info {
+				background-color: $primary-mid-2;
+
+				.info-name {
+					color: #fff;
+				}
+
+				.info-status,
+				.info-company,
+				.info-email {
+					color: #e5e5e5;
+				}
+			}
+
+			.header-close {
+				color: #fff;
+			}
+		}
+
+		.header-info {
+			padding: 8px 2px 5px 10px;
+			border-bottom: 1px solid $text-gray;
+			margin-bottom: 5px;
+
+			.info-name {
+				font-family: $heavy-font;
+				font-size: 1.2rem;
+				padding-right: 27px;
+			}
+
+			.info-status,
+			.info-company,
+			.info-email {
+				color: $text-card-gray;
+				font-size: 0.9rem;
+			}
+
+			.info-status {
+				font-size: 0.8rem;
+			}
+		}
+
+		.header-close {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			right: 0;
+			padding: 5px 5px 0 0;
+
+			&:focus,
+			&:active,
+			&:hover {
+				i {
+					background-color: rgba(0, 0, 0, 0.1);
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+
+	.card-body {
+		padding: 0 10px 5px 10px;
+	}
+}
+
+.text-nowrap {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

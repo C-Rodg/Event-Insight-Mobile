@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import SearchForm from "./SearchForm";
 import RegistrantTile from "./RegistrantTile";
+import RegistrantCard from "./RegistrantCard";
 
 // TESTING
 import { searchRegistrants } from "../mock/mock";
@@ -17,8 +18,10 @@ class SearchContent extends Component {
 			currentRegistrant: null
 		};
 
+		// Bind handlers to this component
 		this.toggleWatchList = this.toggleWatchList.bind(this);
 		this.handleLoadRegistrant = this.handleLoadRegistrant.bind(this);
+		this.handleCloseRegistrant = this.handleCloseRegistrant.bind(this);
 	}
 
 	// Update Search Term
@@ -79,6 +82,11 @@ class SearchContent extends Component {
 		});
 	}
 
+	// Close current registrant
+	handleCloseRegistrant() {
+		this.setState({ currentRegistrant: null });
+	}
+
 	render() {
 		return (
 			<div className="search-content">
@@ -101,7 +109,10 @@ class SearchContent extends Component {
 					{!this.state.currentRegistrant && this.generateRegistrantList()}
 				</div>
 				{this.state.currentRegistrant
-					? <div className="current-registrant">CURRENT REGISTRANT</div>
+					? <RegistrantCard
+							registrant={this.state.currentRegistrant}
+							onCloseRegistrant={this.handleCloseRegistrant}
+						/>
 					: ""}
 			</div>
 		);
