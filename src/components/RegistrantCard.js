@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FeedbackItem from "./FeedbackItem";
 
 class RegistrantCard extends Component {
 	constructor() {
@@ -15,6 +16,62 @@ class RegistrantCard extends Component {
 	// Toggle opening of accordions
 	toggleOpen(prop) {
 		this.setState({ [prop]: !this.state[prop] });
+	}
+
+	// Generate simple array list card data  -- set for exhibitors or session data
+	generateArrayCardData(arr = [], field) {
+		if (arr.length === 0) {
+			const msg =
+				field === "exh"
+					? "No exhibitors visited yet..."
+					: "No sessions have been attended yet...";
+			return (
+				<div className="no-card-data">
+					{msg}
+				</div>
+			);
+		}
+		return arr.map(topic => {
+			return (
+				<div className="list-topic" key={topic}>
+					{topic}
+				</div>
+			);
+		});
+	}
+
+	// Generate Registrant data
+	generateRegistrantCardData(arr = []) {
+		if (arr.length === 0) {
+			return <div className="no-card-data">No registrant data...</div>;
+		}
+		return arr.map(ques => {
+			return (
+				<div className="list-topic" key={ques.name}>
+					<span className="question-prompt">
+						{ques.name}:
+					</span>
+					<span className="question-answer">
+						{ques.value}
+					</span>
+				</div>
+			);
+		});
+	}
+
+	// Generate Feedback data
+	generateFeedbackCardData(arr = []) {
+		if (arr.length === 0) {
+			return (
+				<div className="no-card-data">
+					No evaluations have been completed yet...
+				</div>
+			);
+		}
+
+		return arr.map(feedback => {
+			return <FeedbackItem feedback={feedback} key={feedback.sessionCode} />;
+		});
 	}
 
 	render() {
@@ -63,7 +120,7 @@ class RegistrantCard extends Component {
 							</div>
 						</div>
 						<div className="card-body-data-text">
-							Registrant data goes here...
+							{this.generateRegistrantCardData(registrant.RegistrantData)}
 						</div>
 					</div>
 
@@ -88,7 +145,9 @@ class RegistrantCard extends Component {
 								</i>
 							</div>
 						</div>
-						<div className="card-body-data-text">Sessions.. atttended...</div>
+						<div className="card-body-data-text">
+							{this.generateArrayCardData(registrant.Sessions, "sess")}
+						</div>
 					</div>
 
 					<div
@@ -112,7 +171,9 @@ class RegistrantCard extends Component {
 								</i>
 							</div>
 						</div>
-						<div className="card-body-data-text">Exhibitors visited...</div>
+						<div className="card-body-data-text">
+							{this.generateArrayCardData(registrant.Exhibitors, "exh")}
+						</div>
 					</div>
 
 					<div
@@ -137,7 +198,7 @@ class RegistrantCard extends Component {
 							</div>
 						</div>
 						<div className="card-body-data-text">
-							Feedback data goes here...
+							{this.generateFeedbackCardData(registrant.Feedback)}
 						</div>
 					</div>
 				</div>
