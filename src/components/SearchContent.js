@@ -112,6 +112,7 @@ class SearchContent extends Component {
 					? <RegistrantCard
 							registrant={this.state.currentRegistrant}
 							onCloseRegistrant={this.handleCloseRegistrant}
+							onToggleWatchList={this.toggleWatchList}
 						/>
 					: ""}
 			</div>

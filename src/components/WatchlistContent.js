@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RegistrantTile from "./RegistrantTile";
+import RegistrantCard from "./RegistrantCard";
 
 import { getWatchlistRegistrants } from "../mock/mock";
 
@@ -8,10 +9,13 @@ class WatchlistContent extends Component {
 		super();
 
 		this.state = {
-			registrants: getWatchlistRegistrants()
+			registrants: getWatchlistRegistrants(),
+			currentRegistrant: null
 		};
 
 		this.toggleWatchList = this.toggleWatchList.bind(this);
+		this.handleLoadRegistrant = this.handleLoadRegistrant.bind(this);
+		this.handleCloseRegistrant = this.handleCloseRegistrant.bind(this);
 	}
 
 	// Generate Watchlist tiles
@@ -44,6 +48,11 @@ class WatchlistContent extends Component {
 	handleLoadRegistrant(registrant) {
 		console.log("loading registrant...");
 		console.log(registrant);
+		this.setState({ currentRegistrant: registrant });
+	}
+
+	handleCloseRegistrant() {
+		this.setState({ currentRegistrant: null });
 	}
 
 	// Change whether registrant should be on watchlist or not
@@ -64,7 +73,13 @@ class WatchlistContent extends Component {
 	render() {
 		return (
 			<div className="watchlist-content">
-				{this.generateWatchlist()}
+				{!this.state.currentRegistrant
+					? this.generateWatchlist()
+					: <RegistrantCard
+							registrant={this.state.currentRegistrant}
+							onCloseRegistrant={this.handleCloseRegistrant}
+							onToggleWatchList={this.toggleWatchList}
+						/>}
 			</div>
 		);
 	}

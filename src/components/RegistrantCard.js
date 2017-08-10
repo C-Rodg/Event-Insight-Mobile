@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import FeedbackItem from "./FeedbackItem";
+import RegistrantCardItem from "./RegistrantCardItem";
+import ListCardItem from "./ListCardItem";
 
 class RegistrantCard extends Component {
 	constructor() {
@@ -31,12 +33,8 @@ class RegistrantCard extends Component {
 				</div>
 			);
 		}
-		return arr.map(topic => {
-			return (
-				<div className="list-topic" key={topic}>
-					{topic}
-				</div>
-			);
+		return arr.map((topic, idx) => {
+			return <ListCardItem key={idx} topic={topic} />;
 		});
 	}
 
@@ -45,17 +43,8 @@ class RegistrantCard extends Component {
 		if (arr.length === 0) {
 			return <div className="no-card-data">No registrant data...</div>;
 		}
-		return arr.map(ques => {
-			return (
-				<div className="list-topic" key={ques.name}>
-					<span className="question-prompt">
-						{ques.name}:
-					</span>
-					<span className="question-answer">
-						{ques.value}
-					</span>
-				</div>
-			);
+		return arr.map((ques, idx) => {
+			return <RegistrantCardItem key={idx} {...ques} />;
 		});
 	}
 
@@ -97,8 +86,23 @@ class RegistrantCard extends Component {
 								: "Not Checked-In"}
 						</div>
 					</div>
-					<div className="header-close" onClick={this.props.onCloseRegistrant}>
-						<i className="material-icons">close</i>
+					<div className="reg-card-actions">
+						<div
+							className={
+								"actions-toggle-watch " +
+								(registrant.WatchList ? "watch-on" : "watch-off")
+							}
+							onClick={() =>
+								this.props.onToggleWatchList(registrant, !registrant.WatchList)}
+						>
+							<i className="material-icons">remove_red_eye</i>
+						</div>
+						<div
+							className="actions-close"
+							onClick={this.props.onCloseRegistrant}
+						>
+							<i className="material-icons">close</i>
+						</div>
 					</div>
 				</div>
 
