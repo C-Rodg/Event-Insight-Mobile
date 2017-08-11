@@ -530,6 +530,7 @@ body {
 
 		.dashboard-summary {
 			padding: 10px 10px;
+			border-bottom: 1px solid $text-gray;
 
 			.donut-chart-text-val {
 				font-size: 120px;
@@ -541,6 +542,52 @@ body {
 
 			.donut-chart-text-label {
 				font-size: 28px;
+			}
+
+			.summary-content {
+				.total-attended {
+					font-family: $heavy-font;
+					color: $off-black;
+					font-size: 1.4rem;
+				}
+				.sub-title {
+					color: $text-card-gray;
+				}
+			}
+		}
+
+		.summary-attendee {
+			border-bottom: 1px solid $text-gray;
+			padding: 7px 0;
+			display: flex;
+
+			&::last-child {
+				border-bottom: 0;
+			}
+
+			.small-donut {
+				width: 25%;
+			}
+
+			.attendee-info {
+				width: 75%;
+				text-align: left;
+				line-height: 1.2;
+
+				.attendee-title {
+					font-family: $heavy-font;
+					font-size: 1.2rem;
+				}
+
+				.attendee-title,
+				.attendee-total {
+					color: $off-black;
+				}
+
+				.attendee-sub {
+					color: $text-card-gray;
+					font-size: 0.9rem;
+				}
 			}
 		}
 	}

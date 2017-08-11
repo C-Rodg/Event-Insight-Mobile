@@ -15,13 +15,39 @@ const DashboardContent = () => {
 					/>
 					<div className="summary-content">
 						<div className="total-attended">200 attended</div>
-						<div className="prereg-attended">
+						<div className="sub-title prereg-attended">
 							180 / 300 pre-registered (60%)
 						</div>
-						<div className="walkins-attended">20 walk-ins</div>
+						<div className="sub-title walkins-attended">20 walk-ins</div>
 					</div>
 				</div>
-				<div className="summary-attendee" />
+				<div className="summary-attendee">
+					<div className="small-donut">SMALL DONUT</div>
+					<div className="attendee-info">
+						<div className="attendee-title">Partner</div>
+						<div className="attendee-total">60 attended</div>
+						<div className="attendee-sub">55 / 75 pre-registered (73%)</div>
+						<div className="attendee-sub">5 walk-ins</div>
+					</div>
+				</div>
+				<div className="summary-attendee">
+					<div className="small-donut">SMALL DONUT</div>
+					<div className="attendee-info">
+						<div className="attendee-title">Customer</div>
+						<div className="attendee-total">35 attended</div>
+						<div className="attendee-sub">28 / 175 pre-registered (16%)</div>
+						<div className="attendee-sub">7 walk-ins</div>
+					</div>
+				</div>
+				<div className="summary-attendee">
+					<div className="small-donut">SMALL DONUT</div>
+					<div className="attendee-info">
+						<div className="attendee-title">Prospective Developer</div>
+						<div className="attendee-total">7 attended</div>
+						<div className="attendee-sub">7 / 10 pre-registered (70%)</div>
+						<div className="attendee-sub">0 walk-ins</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
