@@ -248,3 +248,71 @@ export const searchRegistrants = searchTerm => {
 export const getWatchlistRegistrants = () => {
 	return registrants.filter(reg => reg.WatchList);
 };
+
+const registrantData = {
+	total: {
+		preRegHere: 1500,
+		walkInsHere: 320,
+		preRegTotal: 3200
+	},
+	attendeeTypes: [
+		{
+			type: "Partner",
+			preRegHere: 800,
+			walkInsHere: 88,
+			preRegTotal: 899
+		},
+		{
+			type: "Customer",
+			preRegHere: 160,
+			walkInsHere: 45,
+			preRegTotal: 689
+		},
+		{
+			type: "Prospective Developer",
+			preRegHere: 40,
+			walkInsHere: 13,
+			preRegTotal: 345
+		},
+		{
+			type: "Developer",
+			preRegHere: 110,
+			walkInsHere: 28,
+			preRegTotal: 263
+		},
+		{
+			type: "CEO",
+			preRegHere: 8,
+			walkInsHere: 3,
+			preRegTotal: 48
+		},
+		{
+			type: "C-Level",
+			preRegHere: 12,
+			walkInsHere: 48,
+			preRegTotal: 29
+		},
+		{
+			type: "Lower Management",
+			preRegHere: 203,
+			walkInsHere: 54,
+			preRegTotal: 592
+		},
+		{
+			type: "Upper Management",
+			preRegHere: 102,
+			walkInsHere: 18,
+			preRegTotal: 230
+		},
+		{
+			type: "Press & Analyst",
+			preRegHere: 65,
+			walkInsHere: 23,
+			preRegTotal: 105
+		}
+	]
+};
+
+export const getRegistrantData = () => {
+	return registrantData;
+};
