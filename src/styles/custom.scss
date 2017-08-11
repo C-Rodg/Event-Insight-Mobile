@@ -558,15 +558,18 @@ body {
 
 		.summary-attendee {
 			border-bottom: 1px solid $text-gray;
-			padding: 7px 0;
+			padding: 7px;
 			display: flex;
+			align-items: center;
 
 			&::last-child {
 				border-bottom: 0;
 			}
 
 			.small-donut {
-				width: 25%;
+				max-width: 25%;
+				display: flex;
+				margin-right: 10px;
 			}
 
 			.attendee-info {
