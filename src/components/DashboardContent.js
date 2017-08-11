@@ -1,5 +1,6 @@
 import React from "react";
 import DonutChart from "./DonutChart";
+import SmallDonut from "./SmallDonut";
 
 const DashboardContent = () => {
 	return (
@@ -22,7 +23,7 @@ const DashboardContent = () => {
 					</div>
 				</div>
 				<div className="summary-attendee">
-					<div className="small-donut">SMALL DONUT</div>
+					<SmallDonut />
 					<div className="attendee-info">
 						<div className="attendee-title">Partner</div>
 						<div className="attendee-total">60 attended</div>
@@ -31,7 +32,7 @@ const DashboardContent = () => {
 					</div>
 				</div>
 				<div className="summary-attendee">
-					<div className="small-donut">SMALL DONUT</div>
+					<SmallDonut />
 					<div className="attendee-info">
 						<div className="attendee-title">Customer</div>
 						<div className="attendee-total">35 attended</div>
@@ -40,7 +41,7 @@ const DashboardContent = () => {
 					</div>
 				</div>
 				<div className="summary-attendee">
-					<div className="small-donut">SMALL DONUT</div>
+					<SmallDonut />
 					<div className="attendee-info">
 						<div className="attendee-title">Prospective Developer</div>
 						<div className="attendee-total">7 attended</div>
