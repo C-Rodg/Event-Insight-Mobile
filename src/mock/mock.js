@@ -72,7 +72,7 @@ const registrants = [
 		Email: "jwalker@gmail.com",
 		Attended: false,
 		FirstCheckInDateTime: null,
-		WatchList: false,
+		WatchList: true,
 		AttendeeId: 1000,
 		RegistrantData: [
 			{ name: "Attendee Type", value: "Partner" },
@@ -250,7 +250,46 @@ const registrants = [
 		FirstCheckInDateTime: "AUG 13, 10:01 PM",
 		WatchList: true,
 		AttendeeId: 1006,
-		Exhibitors: ["Typecast Solutions", "Microsoft"]
+		RegistrantData: [
+			{ name: "Attendee Type", value: "Prospective Developer" },
+			{ name: "First Name", value: "Kimmy" },
+			{ name: "Last Name", value: "Braves" },
+			{ name: "Company", value: "Tech Solutions" },
+			{ name: "Title", value: "Dev" },
+			{ name: "Email", value: "kbraves@tech.com" },
+			{ name: "Phone", value: "608-293-1234" },
+			{ name: "Twitter ID", value: "@MeBrave" },
+			{ name: "Industry", value: "Health Care" },
+			{ name: "Street Line 1", value: "123 Street" },
+			{ name: "City", value: "Seattle" },
+			{ name: "State", value: "WA" }
+		],
+		Exhibitors: ["Typecast Solutions", "Microsoft"],
+		Sessions: [
+			"a2q3A200301ysXYQAI - Where in the world is Carmen San Diego",
+			"a2q3A330001ysAMQAY - Why HR matters"
+		],
+		Feedback: [
+			{
+				name: "SFWT17-Paris-Keynote-Overall Survey",
+				submitted: "JUN 12, 3:22 PM",
+				sessionCode: "b182aasf829301FcQ1I",
+				responses: [
+					{
+						question: "Did you pick up any swag from this event?",
+						response: "No, I did not"
+					},
+					{
+						question: "How would you rate the event overall?",
+						response: "1 - Poor"
+					},
+					{
+						question: "How would you rate the food at this event?",
+						response: "2"
+					}
+				]
+			}
+		]
 	},
 	{
 		FirstName: "Mellissa",
@@ -295,7 +334,43 @@ const registrants = [
 		Attended: true,
 		FirstCheckInDateTime: "AUG 03, 12:11 PM",
 		WatchList: true,
-		AttendeeId: 1010
+		AttendeeId: 1010,
+		RegistrantData: [
+			{ name: "Attendee Type", value: "Developer" },
+			{ name: "First Name", value: "Ashley" },
+			{ name: "Last Name", value: "Wilson-Watkins" },
+			{ name: "Company", value: "Facebook" },
+			{ name: "Title", value: "Senior Manager" },
+			{ name: "Email", value: "awatkins@face.com" },
+			{ name: "Phone", value: "608-324-1234" },
+			{ name: "Twitter ID", value: "@AWWat" },
+			{ name: "Industry", value: "IT" },
+			{ name: "Street Line 1", value: "123 Street" },
+			{ name: "City", value: "Cupertine" },
+			{ name: "State", value: "CA" }
+		],
+		Sessions: ["a2q3A200301ysXYQAI - What you're missing about DevOps"],
+		Feedback: [
+			{
+				name: "SFWT17-Paris-Keynote-Overall Survey",
+				submitted: "JUN 12, 3:22 PM",
+				sessionCode: "b182aasf829301FcQ1I",
+				responses: [
+					{
+						question: "Did you pick up any swag from this event?",
+						response: "Yes"
+					},
+					{
+						question: "How would you rate the event overall?",
+						response: "4"
+					},
+					{
+						question: "How would you rate the food at this event?",
+						response: "4"
+					}
+				]
+			}
+		]
 	},
 	{
 		FirstName: "Thomas",
@@ -316,6 +391,21 @@ const registrants = [
 		FirstCheckInDateTime: "AUG 02, 9:59 AM",
 		WatchList: true,
 		AttendeeId: 1012,
+		RegistrantData: [
+			{ name: "Attendee Type", value: "CEO" },
+			{ name: "First Name", value: "Brian" },
+			{ name: "Last Name", value: "Talmadge" },
+			{ name: "Company", value: "Nordstrom" },
+			{ name: "Title", value: "CEO" },
+			{ name: "Email", value: "btal@nordys.com" },
+			{ name: "Phone", value: "608-555-1234" },
+			{ name: "Twitter ID", value: "@btall59" },
+			{ name: "Industry", value: "Retail" },
+			{ name: "Street Line 1", value: "123 Street" },
+			{ name: "City", value: "Seattle" },
+			{ name: "State", value: "WA" }
+		],
+		Exhibitors: ["Typecast Solutions", "Microsoft"],
 		Sessions: ["a2q3A330001ysAMQAY - Innovation : finding the next solution"]
 	},
 	{
