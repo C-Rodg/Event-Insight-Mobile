@@ -23,8 +23,8 @@ const SmallDonut = props => {
 	const textStyle = { textAnchor: "middle", fill: color };
 
 	let delay = (props.idx + 1) * 0.5;
-	if (delay > 3) {
-		delay = 3;
+	if (delay > 3.6) {
+		delay = 3.9;
 	}
 
 	const animation = `fill-donut 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) ${delay}s forwards`;
