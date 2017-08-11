@@ -1,3 +1,69 @@
+// Used for Dashboard data
+const registrantData = {
+	total: {
+		preRegHere: 1500,
+		walkInsHere: 320,
+		preRegTotal: 3200
+	},
+	attendeeTypes: [
+		{
+			type: "Partner",
+			preRegHere: 800,
+			walkInsHere: 88,
+			preRegTotal: 899
+		},
+		{
+			type: "Customer",
+			preRegHere: 160,
+			walkInsHere: 45,
+			preRegTotal: 689
+		},
+		{
+			type: "Prospective Developer",
+			preRegHere: 40,
+			walkInsHere: 13,
+			preRegTotal: 345
+		},
+		{
+			type: "Developer",
+			preRegHere: 110,
+			walkInsHere: 28,
+			preRegTotal: 263
+		},
+		{
+			type: "CEO",
+			preRegHere: 8,
+			walkInsHere: 3,
+			preRegTotal: 48
+		},
+		{
+			type: "C-Level",
+			preRegHere: 12,
+			walkInsHere: 48,
+			preRegTotal: 29
+		},
+		{
+			type: "Lower Management",
+			preRegHere: 203,
+			walkInsHere: 54,
+			preRegTotal: 592
+		},
+		{
+			type: "Upper Management",
+			preRegHere: 102,
+			walkInsHere: 18,
+			preRegTotal: 230
+		},
+		{
+			type: "Press & Analyst",
+			preRegHere: 65,
+			walkInsHere: 23,
+			preRegTotal: 105
+		}
+	]
+};
+
+// Used for registrant data
 const registrants = [
 	{
 		FirstName: "Johnny",
@@ -111,7 +177,18 @@ const registrants = [
 		Attended: true,
 		FirstCheckInDateTime: "AUG 02, 8:30 AM",
 		WatchList: false,
-		AttendeeId: 1001
+		AttendeeId: 1001,
+		RegistrantData: [
+			{ name: "Attendee Type", value: "Customer" },
+			{ name: "First Name", value: "Mike" },
+			{ name: "Last Name", value: "Salmanders" },
+			{ name: "Company", value: "Google Solutions" }
+		],
+		Exhibitors: ["Vizio Electronics"],
+		Sessions: [
+			"a2q3A200301ysXYQAI - What you're missing about DevOps",
+			"a2q3A330001ysAMQAY - Innovation : finding the next solution"
+		]
 	},
 	{
 		FirstName: "James",
@@ -121,7 +198,8 @@ const registrants = [
 		Attended: false,
 		FirstCheckInDateTime: "AUG 02, 8:38 AM",
 		WatchList: false,
-		AttendeeId: 1002
+		AttendeeId: 1002,
+		Sessions: ["a2q3A200301ysXYQAI - What you're missing about DevOps"]
 	},
 	{
 		FirstName: "Tyler",
@@ -131,7 +209,12 @@ const registrants = [
 		Attended: false,
 		FirstCheckInDateTime: "AUG 02, 7:33 AM",
 		WatchList: false,
-		AttendeeId: 1003
+		AttendeeId: 1003,
+		Exhibitors: ["Vizio Electronics", "Typecast Solutions"],
+		Sessions: [
+			"a2q3A200301ysXYQAI - What you're missing about DevOps",
+			"a2q3A330001ysAMQAY - Innovation : finding the next solution"
+		]
 	},
 	{
 		FirstName: "Joanna",
@@ -141,7 +224,11 @@ const registrants = [
 		Attended: true,
 		FirstCheckInDateTime: "AUG 02, 11:55 AM",
 		WatchList: false,
-		AttendeeId: 1004
+		AttendeeId: 1004,
+		Sessions: [
+			"a2q3A200301ysXYQAI - What you're missing about DevOps",
+			"a2q3A330001ysAMQAY - Innovation : finding the next solution"
+		]
 	},
 	{
 		FirstName: "Erin",
@@ -151,7 +238,8 @@ const registrants = [
 		Attended: true,
 		FirstCheckInDateTime: "AUG 23, 12:45 PM",
 		WatchList: false,
-		AttendeeId: 1005
+		AttendeeId: 1005,
+		Exhibitors: ["Typecast Solutions"]
 	},
 	{
 		FirstName: "Kimmy",
@@ -161,7 +249,8 @@ const registrants = [
 		Attended: false,
 		FirstCheckInDateTime: "AUG 13, 10:01 PM",
 		WatchList: true,
-		AttendeeId: 1006
+		AttendeeId: 1006,
+		Exhibitors: ["Typecast Solutions", "Microsoft"]
 	},
 	{
 		FirstName: "Mellissa",
@@ -171,7 +260,11 @@ const registrants = [
 		Attended: false,
 		FirstCheckInDateTime: "AUG 02, 11:22 AM",
 		WatchList: false,
-		AttendeeId: 1007
+		AttendeeId: 1007,
+		Sessions: [
+			"a2q3A200301ysXYQAI - What you're missing about DevOps",
+			"a2q3A330001ysAMQAY - Innovation : finding the next solution"
+		]
 	},
 	{
 		FirstName: "Helen",
@@ -191,7 +284,8 @@ const registrants = [
 		Attended: true,
 		FirstCheckInDateTime: "AUG 13, 6:13 AM",
 		WatchList: false,
-		AttendeeId: 1009
+		AttendeeId: 1009,
+		Sessions: ["a2q3A200301ysXYQAI - What you're missing about DevOps"]
 	},
 	{
 		FirstName: "Ashley",
@@ -221,7 +315,8 @@ const registrants = [
 		Attended: false,
 		FirstCheckInDateTime: "AUG 02, 9:59 AM",
 		WatchList: true,
-		AttendeeId: 1012
+		AttendeeId: 1012,
+		Sessions: ["a2q3A330001ysAMQAY - Innovation : finding the next solution"]
 	},
 	{
 		FirstName: "Billy-Joe",
@@ -247,70 +342,6 @@ export const searchRegistrants = searchTerm => {
 
 export const getWatchlistRegistrants = () => {
 	return registrants.filter(reg => reg.WatchList);
-};
-
-const registrantData = {
-	total: {
-		preRegHere: 1500,
-		walkInsHere: 320,
-		preRegTotal: 3200
-	},
-	attendeeTypes: [
-		{
-			type: "Partner",
-			preRegHere: 800,
-			walkInsHere: 88,
-			preRegTotal: 899
-		},
-		{
-			type: "Customer",
-			preRegHere: 160,
-			walkInsHere: 45,
-			preRegTotal: 689
-		},
-		{
-			type: "Prospective Developer",
-			preRegHere: 40,
-			walkInsHere: 13,
-			preRegTotal: 345
-		},
-		{
-			type: "Developer",
-			preRegHere: 110,
-			walkInsHere: 28,
-			preRegTotal: 263
-		},
-		{
-			type: "CEO",
-			preRegHere: 8,
-			walkInsHere: 3,
-			preRegTotal: 48
-		},
-		{
-			type: "C-Level",
-			preRegHere: 12,
-			walkInsHere: 48,
-			preRegTotal: 29
-		},
-		{
-			type: "Lower Management",
-			preRegHere: 203,
-			walkInsHere: 54,
-			preRegTotal: 592
-		},
-		{
-			type: "Upper Management",
-			preRegHere: 102,
-			walkInsHere: 18,
-			preRegTotal: 230
-		},
-		{
-			type: "Press & Analyst",
-			preRegHere: 65,
-			walkInsHere: 23,
-			preRegTotal: 105
-		}
-	]
 };
 
 export const getRegistrantData = () => {
