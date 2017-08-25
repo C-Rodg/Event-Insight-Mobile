@@ -17,7 +17,7 @@ class Content extends Component {
 			this.setState({ error: true });
 		} else {
 			this.setState({ error: false });
-			window.location.href = "http://crodgers.corp.validar.com/insight-new/";
+			window.location.href = "default.html";
 		}
 	}
 
