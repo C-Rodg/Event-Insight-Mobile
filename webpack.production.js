@@ -2,13 +2,14 @@ const path = require("path"),
 	webpack = require("webpack"),
 	HtmlWebpackPlugin = require("html-webpack-plugin"),
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
-	UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
+	UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin"),
+	package = require("./package.json");
 
 module.exports = {
 	devtool: "source-map",
 	target: "web",
 	entry: {
-		app: "./src/index.js"
+		app: "./src/default.js"
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
@@ -88,7 +89,8 @@ module.exports = {
 		new ExtractTextPlugin("styles.css"),
 		new HtmlWebpackPlugin({
 			title: "Event Insight Mobile",
-			template: "src/index.html",
+			template: "src/default.html",
+			filename: "./default.html",
 			env: true
 		}),
 		new UglifyJsPlugin({

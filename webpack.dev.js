@@ -4,12 +4,17 @@ const path = require("path"),
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
 	UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin"),
 	BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-		.BundleAnalyzerPlugin;
+		.BundleAnalyzerPlugin,
+	package = require("./package.json");
 
 module.exports = {
 	devtool: "inline-source-map",
 	target: "web",
-	entry: "./src/index.js",
+	entry: {
+		app: "./src/default.js",
+		search: "./src/search.js",
+		vendor: Object.keys(package.dependencies)
+	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		filename: "bundle.js"
@@ -87,7 +92,8 @@ module.exports = {
 		new ExtractTextPlugin("styles.css"),
 		new HtmlWebpackPlugin({
 			title: "Event Insight Mobile",
-			template: "src/index.html"
+			template: "src/default.html",
+			filename: "./default.html"
 		}),
 		new UglifyJsPlugin({
 			beautify: true,
