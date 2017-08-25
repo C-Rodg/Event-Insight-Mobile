@@ -2,7 +2,7 @@ import React from "react";
 import DonutChart from "./DonutChart";
 import SmallDonut from "./SmallDonut";
 
-import { getRegistrantData } from "../mock/mock";
+import { getRegistrantData } from "../../mock/mock";
 import AttendeeTypeBox from "./AttendeeTypeBox";
 
 const generateAttendeeRows = data => {

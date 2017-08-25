@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import RegistrantTile from "./RegistrantTile";
 import RegistrantCard from "./RegistrantCard";
 
-import { getWatchlistRegistrants } from "../mock/mock";
+import { getWatchlistRegistrants } from "../../mock/mock";
 
 class WatchlistContent extends Component {
 	constructor() {

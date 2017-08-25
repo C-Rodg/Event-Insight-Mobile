@@ -5,7 +5,7 @@ import RegistrantTile from "./RegistrantTile";
 import RegistrantCard from "./RegistrantCard";
 
 // TESTING
-import { searchRegistrants } from "../mock/mock";
+import { searchRegistrants } from "../../mock/mock";
 
 class SearchContent extends Component {
 	constructor() {
