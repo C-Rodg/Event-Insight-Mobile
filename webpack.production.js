@@ -9,11 +9,13 @@ module.exports = {
 	devtool: "source-map",
 	target: "web",
 	entry: {
-		app: "./src/default.js"
+		app: "./src/default.js",
+		search: "./src/search.js",
+		vendor: Object.keys(package.dependencies)
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
-		filename: "bundle.js"
+		filename: "[name].bundle.js"
 	},
 	module: {
 		rules: [
@@ -86,12 +88,24 @@ module.exports = {
 		new webpack.DefinePlugin({
 			"process.env": { NODE_ENV: JSON.stringify("production") }
 		}),
-		new ExtractTextPlugin("styles.css"),
+		new ExtractTextPlugin({
+			filename: "[name].css?[hash]-[chunkhash]-[contenthash]-[name]",
+			disable: false,
+			allChunks: true
+		}),
 		new HtmlWebpackPlugin({
 			title: "Event Insight Mobile",
 			template: "src/default.html",
 			filename: "./default.html",
-			env: true
+			env: true,
+			chunks: ["vendor", "app"]
+		}),
+		new HtmlWebpackPlugin({
+			title: "Event Insight Mobile login",
+			template: "src/search.html",
+			filename: "./search.html",
+			env: true,
+			chunks: ["vendor", "search"]
 		}),
 		new UglifyJsPlugin({
 			beautify: false,

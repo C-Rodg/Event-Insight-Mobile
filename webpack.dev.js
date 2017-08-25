@@ -17,7 +17,7 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"),
-		filename: "bundle.js"
+		filename: "[name].bundle.js"
 	},
 	module: {
 		rules: [
@@ -89,11 +89,25 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin("styles.css"),
+		new ExtractTextPlugin({
+			filename: "[name].css?[hash]-[chunkhash]-[contenthash]-[name]",
+			disable: false,
+			allChunks: true
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: "vendor"
+		}),
 		new HtmlWebpackPlugin({
 			title: "Event Insight Mobile",
 			template: "src/default.html",
-			filename: "./default.html"
+			filename: "./default.html",
+			chunks: ["vendor", "app"]
+		}),
+		new HtmlWebpackPlugin({
+			title: "Event Insight Mobile login",
+			template: "src/search.html",
+			filename: "./search.html",
+			chunks: ["vendor", "search"]
 		}),
 		new UglifyJsPlugin({
 			beautify: true,
