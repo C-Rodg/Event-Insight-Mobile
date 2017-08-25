@@ -17,7 +17,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="app">
+			<div className="default-app app">
 				<Header
 					eventTitle="Salesforce World Tour - Toronto 2017"
 					activeTab={this.state.activeTab}

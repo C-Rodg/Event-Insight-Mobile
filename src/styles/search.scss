@@ -1,0 +1,82 @@
+@import './variables';
+
+.search-app {
+	.content {
+		top: 37px;
+
+		.search-container {
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+
+			.info {
+				color: $off-black;
+
+				.search-welcome {
+					font-family: $heavy-font;
+					font-size: 2.3rem;
+					line-height: 125%;
+				}
+				.search-title {
+					font-size: 1.1rem;
+					line-height: 150%;
+					margin-bottom: 10px;
+				}
+
+				.error-msg {
+					color: $error;
+				}
+			}
+		}
+
+		.login-form {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+
+			.form-items {
+				input {
+					padding: 6px 15px;
+					border-radius: 2px;
+					font-size: 1.6rem;
+					line-height: 3rem;
+					color: #141414;
+					background-color: #fff;
+					border: 0;
+					box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+						0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+					width: 100%;
+					max-width: 400px;
+					margin: 15px auto;
+					display: block;
+					appearance: none;
+				}
+			}
+
+			.btn-block-submit {
+				display: block;
+				width: 100%;
+				max-width: 400px;
+				text-transform: uppercase;
+				border-radius: 2px;
+				height: 3.6rem;
+				font-size: 1.4rem;
+				margin: 10px auto;
+				font-family: $heavy-font;
+				color: #fff;
+				background-color: $primary-dark;
+				border: 0;
+				box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+					0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+				transition: background-color 0.23s ease-in-out;
+
+				&:focus,
+				&:active,
+				&:hover {
+					background-color: $primary-mid-2;
+				}
+			}
+		}
+	}
+}
