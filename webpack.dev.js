@@ -101,13 +101,15 @@ module.exports = {
 			title: "Event Insight Mobile",
 			template: "src/default.html",
 			filename: "./default.html",
-			chunks: ["vendor", "app"]
+			chunks: ["vendor", "app"],
+			favicon: "./src/static/favicon.ico"
 		}),
 		new HtmlWebpackPlugin({
 			title: "Event Insight Mobile login",
 			template: "src/search.html",
 			filename: "./search.html",
-			chunks: ["vendor", "search"]
+			chunks: ["vendor", "search"],
+			favicon: "./src/static/favicon.ico"
 		}),
 		new UglifyJsPlugin({
 			beautify: true,

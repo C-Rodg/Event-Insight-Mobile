@@ -98,14 +98,16 @@ module.exports = {
 			template: "src/default.html",
 			filename: "./default.html",
 			env: true,
-			chunks: ["vendor", "app"]
+			chunks: ["vendor", "app"],
+			favicon: "./src/static/favicon.ico"
 		}),
 		new HtmlWebpackPlugin({
 			title: "Event Insight Mobile login",
 			template: "src/search.html",
 			filename: "./search.html",
 			env: true,
-			chunks: ["vendor", "search"]
+			chunks: ["vendor", "search"],
+			favicon: "./src/static/favicon.ico"
 		}),
 		new UglifyJsPlugin({
 			beautify: false,
